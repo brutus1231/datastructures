@@ -4,22 +4,33 @@ import java.util.LinkedList;
 
 public class CustomStack<T> {
 
-    private LinkedList<T> elements;
+    private LinkedList<T> elements = new LinkedList<>();
 
     public void push(T element) {
-        elements.addLast(element);
+        elements.addFirst(element);
     }
 
     public T pop() {
-        return elements.removeLast();
+        return elements.removeFirst();
     }
 
     public T pick() {
-        return elements.getLast();
+        return elements.getFirst();
+    }
+
+    public boolean isEmpty(){
+        return elements.isEmpty();
+    }
+
+    public int size() {
+        return elements.size();
     }
 
     public void clear() {
-
+        while (!elements.isEmpty()) {
+            T element = elements.pop();
+            System.out.println(element);
+        }
     }
 
     public static void main(String[] args) {
