@@ -2,20 +2,19 @@ package pl.sda;
 
 import java.util.LinkedList;
 
-public class CustomStack<T> {
-
+public class CustomQueue<T> {
     private LinkedList<T> elements = new LinkedList<>();
 
     public void push(T element) {
-        elements.addFirst(element);
+        elements.addLast(element);
     }
 
     public T pop() {
         return elements.removeFirst();
     }
 
-    public T pick() {
-        return elements.getFirst();
+    public T front() {
+        return elements.getLast();
     }
 
     public boolean isEmpty(){
@@ -34,16 +33,16 @@ public class CustomStack<T> {
     }
 
     public static void main(String[] args) {
-        CustomStack<Integer> stack = new CustomStack<>();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.clear();
+        CustomQueue<Integer> queue1 = new CustomQueue<>();
+        queue1.push(1);
+        queue1.push(2);
+        queue1.push(3);
+        queue1.clear();
 
-        CustomStack<String> stack2 = new CustomStack<>();
-        stack2.push("ala ma kota");
-        stack2.push("wiewiórka");
-        stack2.push("programowanie");
-        stack2.clear();
+        CustomQueue<String> queue2 = new CustomQueue<>();
+        queue2.push("ala ma kota");
+        queue2.push("wiewiórka");
+        queue2.push("programowanie");
+        queue2.clear();
     }
 }
