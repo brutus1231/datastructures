@@ -43,24 +43,18 @@ public class CustomPriorityQueue<T> {
     }
 
     public static void main(String[] args) {
-//        CustomPriorityQueue<Integer> queue1 =
-//                new CustomPriorityQueue<>(getNumberComparator());
-//        queue1.push(1);
-//        queue1.push(2);
-//        queue1.push(3);
-//        queue1.clear();
-//
-//        CustomPriorityQueue<String> queue2 = new CustomPriorityQueue<>();
-//        queue2.push("ala ma kota");
-//        queue2.push("wiewiórka");
-//        queue2.push("programowanie");
-//        queue2.clear();
+        CustomPriorityQueue<Integer> queue1 =
+                new CustomPriorityQueue<>(getNumberComparator());
+        queue1.push(1);
+        queue1.push(2);
+        queue1.push(3);
+        queue1.clear();
 
-
-        String s1 = "zzzaz";
-        String s2 = "zzzaz";
-
-        System.out.println(s1.compareTo(s2));
+        CustomPriorityQueue<String> queue2 = new CustomPriorityQueue<>();
+        queue2.push("ala ma kota");
+        queue2.push("wiewiórka");
+        queue2.push("programowanie");
+        queue2.clear();
 
     }
 
