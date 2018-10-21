@@ -67,7 +67,7 @@ public class CustomPriorityQueue<T> {
                     return o1 < o2 ? -1 : 1;
                 }
 
-                if(o1 % 2 == 0){
+                if (o1 % 2 == 0) {
                     return -1;
                 }
 
