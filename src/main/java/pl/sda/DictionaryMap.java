@@ -12,13 +12,13 @@ public class DictionaryMap {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        Map<String, String> dictionary = readWords();
+        Map<String, String> dictionary = prepareDictionary();
         String word = getWord();
         System.out.println(translate(dictionary, word));
     }
 
     private static String translate(Map<String, String> dictionary, String word) {
-        return "";
+        return dictionary.get(word);
     }
 
     private static String getWord() {
@@ -26,12 +26,15 @@ public class DictionaryMap {
         return scanner.next();
     }
 
-    private static Map<String, String> readWords() throws FileNotFoundException {
+    private static Map<String, String> prepareDictionary() throws FileNotFoundException {
         Map<String, String> dictionary = new HashMap<>();
         Scanner scanner = new Scanner(new File(FILE_PATH));
 
         while (scanner.hasNextLine()) {
+            String key = scanner.next();
+            String value = scanner.next();
 
+            dictionary.put(key, value);
         }
 
         scanner.close();
