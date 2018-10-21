@@ -28,7 +28,6 @@ public class CustomTree<T> {
         this.parent = parent;
     }
 
-
     public boolean isRoot(){
         return getParent() == null;
     }
