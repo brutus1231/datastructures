@@ -14,7 +14,7 @@ public class CustomLinkedList<T> {
     }
 
     public void add(CustomLinkedList<T> newElement) {
-        CustomLinkedList last = this;
+        CustomLinkedList last = this; //this - pierwszy element
         while (last.next != null) {
             last = last.next;
         }
@@ -24,13 +24,25 @@ public class CustomLinkedList<T> {
         size++;
     }
 
-    public CustomLinkedList<T> remove(CustomLinkedList<T> element) {
-
-        if (this.value == element.value) {
+    public CustomLinkedList<T> remove(T valueToRemove) {
+        size--;
+        if (this.value == valueToRemove) {
             return this.next;
         }
 
-        //do dopisania usuwanie elementu w środku listy
+        CustomLinkedList toRemove = this.next;
+        while (toRemove != null) {
+            if (toRemove.value == valueToRemove) {
+                toRemove.prev.next = toRemove.next;
+                if (toRemove.next != null) {
+                    toRemove.next.prev = toRemove.prev;
+                }
+
+                return this;
+            }
+            toRemove = toRemove.next;
+        }
+
         return this;
     }
 
@@ -56,8 +68,10 @@ public class CustomLinkedList<T> {
 
         head.add(new CustomLinkedList<>(2));
         head.add(new CustomLinkedList<>(3));
+        head.add(new CustomLinkedList<>(4));
 
-        head = head.remove(new CustomLinkedList<>(2));
+        head = head.remove(2);
+        head = head.remove(3);
 
         head.print();
     }
