@@ -4,6 +4,7 @@ public class CustomLinkedList<T> {
 
     private CustomLinkedList<T> next;
     private CustomLinkedList<T> prev;
+
     private T value;
     private int size;
 
@@ -21,6 +22,24 @@ public class CustomLinkedList<T> {
 
         last.next = newElement;
         newElement.prev = last;
+        size++;
+    }
+
+    public void add(CustomLinkedList<T> newElement, int index) {
+        CustomLinkedList last = this;
+        int listIndex = 0;
+        while (last.next != null) {
+            if(listIndex == index + 1){
+                break;
+            }
+            last = last.next;
+            listIndex++;
+        }
+
+        newElement.prev = last;
+        newElement.next = last.next;
+        last.next.prev = newElement;
+        last.next = newElement;
         size++;
     }
 
