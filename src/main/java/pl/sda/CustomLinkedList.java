@@ -73,6 +73,19 @@ public class CustomLinkedList<T> {
         return size == 0;
     }
 
+    public CustomLinkedList<T> get(int index) {
+        CustomLinkedList temp = this;
+        int listIndex = 0;
+        while (temp != null) {
+            if (listIndex == index) {
+                return temp;
+            }
+            temp = temp.next;
+            listIndex++;
+        }
+        return null;
+    }
+
     public void print() {
         CustomLinkedList temp = this;
         while (temp != null) {
